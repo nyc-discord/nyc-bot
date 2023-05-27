@@ -33,7 +33,7 @@ private:
         bot_cluster
             = std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
     };
-//    BotInstance(const BotInstance&) = delete;
+    //    BotInstance(const BotInstance&) = delete;
     void
     operator=(const BotInstance&)
         = delete;

@@ -32,7 +32,8 @@ main()
                     .add_select_option(dpp::select_option("Bronx", "bronx", "Land of rats").set_emoji("🐀"))
                     .add_select_option(dpp::select_option("Manhattan", "manhattan", "Best Borough").set_emoji("🤑"))
                     .add_select_option(dpp::select_option("Queens", "queens", "Who even lives here").set_emoji("👑"))
-                    .add_select_option(dpp::select_option("Brooklyn", "brooklyn", "Better be Williamsburg").set_emoji("☕️"))
+                    .add_select_option(
+                        dpp::select_option("Brooklyn", "brooklyn", "Better be Williamsburg").set_emoji("☕️"))
                     .add_select_option(dpp::select_option("Staten Island", "statenisland", "Ok fed").set_emoji("🚔"))
                     .set_id("nyc_borough")));
             bot->message_create(m);

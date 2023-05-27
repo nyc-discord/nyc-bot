@@ -69,6 +69,7 @@ public:
             std::string channel_id = std::get<std::string>(event.components[0].components[0].value);
             std::string title = std::get<std::string>(event.components[1].components[0].value);
             std::string body_text = std::get<std::string>(event.components[2].components[0].value);
+
             dpp::message m;
             m.set_channel_id(channel_id);
             m.set_content("Testing Announcements " + body_text).set_flags(dpp::m_ephemeral);
