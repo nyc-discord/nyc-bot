@@ -24,6 +24,24 @@ public:
             /* Check for our /dialog command */
             if (event.command.get_command_name() == this->command_name)
             {
+
+                auto roles = event.command.member.roles;
+                dpp::snowflake admin_role(735306184860368967);
+                bool user_has_permission = false;
+                for (auto const& role: roles) {
+                    if (role == admin_role)
+                    {
+                        user_has_permission = true;
+                        // The user has the role you're looking for!
+                        // You can react to it here.
+                    }
+                }
+
+                if (!user_has_permission)
+                {
+                    return;
+                }
+
                 /* Instantiate an interaction_modal_response object */
                 dpp::interaction_modal_response modal("my_modal", "Fill out announcement form");
                 /* Add a text component */
