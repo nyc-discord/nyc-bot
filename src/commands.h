@@ -7,5 +7,6 @@
 
 #include "command-about.h"
 #include "command-ping.h"
+#include "command-announcement.h"
 
 #endif // NYC_DISCORD_BOT_COMMANDS_H
