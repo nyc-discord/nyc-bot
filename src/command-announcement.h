@@ -32,8 +32,6 @@ public:
                     if (role == admin_role)
                     {
                         user_has_permission = true;
-                        // The user has the role you're looking for!
-                        // You can react to it here.
                     }
                 }
 
