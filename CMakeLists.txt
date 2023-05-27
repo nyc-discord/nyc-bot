@@ -16,5 +16,5 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(dpp)
 
-add_executable(nyc_discord_bot src/main.cpp src/command.cpp src/command.h src/command-ping.h src/bot-instance.cpp src/bot-instance.h src/command-about.h src/commands.h)
+add_executable(nyc_discord_bot src/main.cpp src/command.cpp src/command.h src/command-ping.h src/bot-instance.cpp src/bot-instance.h src/command-about.h src/commands.h src/command-avatar.h)
 target_link_libraries(nyc_discord_bot ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY} dpp)

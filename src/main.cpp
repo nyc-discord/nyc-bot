@@ -49,7 +49,28 @@ main()
             while (std::regex_search(content, matches, mention_regex))
             {
                 dpp::snowflake user_id = std::stoull(matches[1].str());
-                bot->guild_member_add_role(event.msg.guild_id, user_id, dunce_role_id);
+
+                bot->guild_get_member(event.msg.guild_id, user_id, [&](auto data) {
+                    const dpp::guild_member& member = data.template get<dpp::guild_member>();
+                    bool has_dunce_role = false;
+                    for (const auto& role : member.roles)
+                    {
+                        if (role == dunce_role_id)
+                        {
+                            has_dunce_role = true;
+                        }
+                    }
+
+                    if (has_dunce_role)
+                    {
+                        bot->guild_member_remove_role(event.msg.guild_id, user_id, dunce_role_id);
+                    }
+                    else
+                    {
+                        bot->guild_member_add_role(event.msg.guild_id, user_id, dunce_role_id);
+                    }
+                });
+
                 content = matches.suffix().str();
             }
             std::cout << event.msg.content << std::endl;

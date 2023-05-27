@@ -1,0 +1,8 @@
+//
+// Created by ariel on 5/27/23.
+//
+
+#ifndef NYC_DISCORD_BOT_COMMAND_AVATAR_H
+#define NYC_DISCORD_BOT_COMMAND_AVATAR_H
+
+#endif // NYC_DISCORD_BOT_COMMAND_AVATAR_H
