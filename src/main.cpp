@@ -41,6 +41,23 @@ main()
 
         if (event.msg.content.starts_with("!dunce"))
         {
+            // check that user is admin
+            auto roles = event.msg.member.roles;
+            dpp::snowflake admin_role(735306184860368967);
+            bool user_has_permission = false;
+            for (auto const& role : roles)
+            {
+                if (role == admin_role)
+                {
+                    user_has_permission = true;
+                }
+            }
+
+            if (!user_has_permission)
+            {
+                return;
+            }
+
             std::regex mention_regex("<@!?([0-9]+)>");
             std::smatch matches;
             std::string content = event.msg.content;
