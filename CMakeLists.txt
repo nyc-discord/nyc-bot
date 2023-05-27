@@ -16,5 +16,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(dpp)
 
-add_executable(nyc_discord_bot src/main.cpp src/command.cpp src/command.h src/command-ping.h src/bot-instance.cpp src/bot-instance.h src/command-about.h src/commands.h src/command-avatar.h)
+# Add the 'include' directory to the include file search path
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+add_executable(nyc_discord_bot src/main.cpp src/command.cpp include/command.h include/command-ping.h src/bot-instance.cpp include/bot-instance.h include/command-about.h include/commands.h include/command-avatar.h)
 target_link_libraries(nyc_discord_bot ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY} dpp)
