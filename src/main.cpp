@@ -9,10 +9,8 @@ main()
     auto bot = bot_instance.bot_cluster.get();
 
     bot->on_ready([&bot](auto event) {
-        if (dpp::run_once<struct register_bot_commands>())
-        {
-            for (auto command : command_registry())
-            {
+        if (dpp::run_once<struct register_bot_commands>()) {
+            for (auto command : command_registry()) {
                 command->execute();
                 command->initialize_command();
             }
@@ -21,8 +19,7 @@ main()
 
     /// custom code put this in a file
     bot->on_message_create([&bot](const dpp::message_create_t& event) {
-        if (event.msg.content == "!select")
-        {
+        if (event.msg.content == "!select") {
             /* Create a message containing an action row, and a select menu within the action row. */
             dpp::message m(event.msg.channel_id, "Which borough are you from?");
             m.add_component(dpp::component().add_component(
@@ -39,23 +36,20 @@ main()
             bot->message_create(m);
         }
 
-        if (event.msg.content.starts_with("!dunce"))
-        {
+        if (event.msg.content.starts_with("!dunce")) {
             // check that user is admin
             auto roles = event.msg.member.roles;
             dpp::snowflake admin_role(735306184860368967);
             bool user_has_permission = false;
-            for (auto const& role : roles)
-            {
-                if (role == admin_role)
-                {
+
+            for (auto const& role : roles) {
+                if (role == admin_role) {
                     user_has_permission = true;
                     break;
                 }
             }
 
-            if (!user_has_permission)
-            {
+            if (!user_has_permission) {
                 return;
             }
 
@@ -64,28 +58,23 @@ main()
             std::string content = event.msg.content;
             dpp::snowflake dunce_role_id("1112075408381325374");
 
-            while (std::regex_search(content, matches, mention_regex))
-            {
+            while (std::regex_search(content, matches, mention_regex)) {
                 dpp::snowflake user_id = std::stoull(matches[1].str());
 
                 bot->guild_get_member(event.msg.guild_id, user_id, [&](auto data) {
                     const dpp::guild_member& member = data.template get<dpp::guild_member>();
                     bool has_dunce_role = false;
-                    for (const auto& role : member.roles)
-                    {
-                        if (role == dunce_role_id)
-                        {
+                    for (const auto& role : member.roles) {
+                        if (role == dunce_role_id) {
                             has_dunce_role = true;
                             break;
                         }
                     }
 
-                    if (has_dunce_role)
-                    {
+                    if (has_dunce_role) {
                         bot->guild_member_remove_role(event.msg.guild_id, user_id, dunce_role_id);
                     }
-                    else
-                    {
+                    else {
                         bot->guild_member_add_role(event.msg.guild_id, user_id, dunce_role_id);
                     }
                 });

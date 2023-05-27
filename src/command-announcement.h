@@ -22,22 +22,19 @@ public:
         auto bot = this->bot_instance->bot_cluster.get();
         bot->on_slashcommand([&bot, this](const dpp::slashcommand_t& event) {
             /* Check for our /dialog command */
-            if (event.command.get_command_name() == this->command_name)
-            {
+            if (event.command.get_command_name() == this->command_name) {
 
                 auto roles = event.command.member.roles;
                 dpp::snowflake admin_role(735306184860368967);
                 bool user_has_permission = false;
-                for (auto const& role: roles) {
-                    if (role == admin_role)
-                    {
+                for (auto const& role : roles) {
+                    if (role == admin_role) {
                         user_has_permission = true;
                         break;
                     }
                 }
 
-                if (!user_has_permission)
-                {
+                if (!user_has_permission) {
                     return;
                 }
 

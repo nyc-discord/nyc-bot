@@ -18,8 +18,7 @@ public:
     {
         auto bot = this->bot_instance->bot_cluster.get();
         bot->on_slashcommand([](auto event) {
-            if (event.command.get_command_name() == "about")
-            {
+            if (event.command.get_command_name() == "about") {
                 event.reply(
                     "This is an open source bot. Please visit:\n "
                     "https://github.com/nyc-discord/nyc-bot/tree/main to "

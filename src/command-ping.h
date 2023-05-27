@@ -18,8 +18,7 @@ public:
     {
         auto bot = this->bot_instance->bot_cluster.get();
         bot->on_slashcommand([](auto event) {
-            if (event.command.get_command_name() == "ping")
-            {
+            if (event.command.get_command_name() == "ping") {
                 event.reply("Pong!");
             }
         });
