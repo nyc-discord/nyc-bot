@@ -2,11 +2,6 @@ cmake_minimum_required(VERSION 3.25)
 project(nyc_discord_bot)
 
 set(CMAKE_CXX_STANDARD 23)
-set(OPEN_SSL_HEADER_ROOT_DIR "/nix/store/6zyv2ff4f4bsa5vbn4ylimnzzisak8ga-openssl-3.0.7-dev/include/")
-set(OPENSSL_ROOT_DIR "/nix/store/in8nxwr1sjnncxzrqnprxlaxvfpvd5aq-openssl-3.0.7")
-set(OPENSSL_INCLUDE_DIR "${OPENSSL_ROOT_DIR}/include")
-set(OPENSSL_CRYPTO_LIBRARY "${OPENSSL_ROOT_DIR}/lib/libcrypto.dylib")
-set(OPENSSL_SSL_LIBRARY "${OPENSSL_ROOT_DIR}/lib/libssl.dylib")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_ROOT_DIR})
@@ -21,5 +16,5 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(dpp)
 
-add_executable(nyc_discord_bot main.cpp)
+add_executable(nyc_discord_bot src/main.cpp src/command.cpp src/command.h src/command-ping.h src/bot-instance.cpp src/bot-instance.h src/command-about.h src/commands.h)
 target_link_libraries(nyc_discord_bot ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY} dpp)
