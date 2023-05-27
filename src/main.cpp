@@ -1,6 +1,6 @@
 #include "bot-instance.h"
 #include "commands.h"
-#include <dpp/dpp.h>
+#include <regex>
 
 int
 main()
@@ -37,6 +37,22 @@ main()
                     .add_select_option(dpp::select_option("Staten Island", "statenisland", "Ok fed").set_emoji("🚔"))
                     .set_id("nyc_borough")));
             bot->message_create(m);
+        }
+
+        if (event.msg.content.starts_with("!dunce"))
+        {
+            std::regex mention_regex("<@!?([0-9]+)>");
+            std::smatch matches;
+            std::string content = event.msg.content;
+            dpp::snowflake dunce_role_id("1112075408381325374");
+
+            while (std::regex_search(content, matches, mention_regex))
+            {
+                dpp::snowflake user_id = std::stoull(matches[1].str());
+                bot->guild_member_add_role(event.msg.guild_id, user_id, dunce_role_id);
+                content = matches.suffix().str();
+            }
+            std::cout << event.msg.content << std::endl;
         }
     });
     /* When a user clicks your select menu , the on_select_click event will fire,
