@@ -32,6 +32,7 @@ public:
                     if (role == admin_role)
                     {
                         user_has_permission = true;
+                        break;
                     }
                 }
 

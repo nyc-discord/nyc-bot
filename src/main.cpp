@@ -50,6 +50,7 @@ main()
                 if (role == admin_role)
                 {
                     user_has_permission = true;
+                    break;
                 }
             }
 
@@ -75,6 +76,7 @@ main()
                         if (role == dunce_role_id)
                         {
                             has_dunce_role = true;
+                            break;
                         }
                     }
 
