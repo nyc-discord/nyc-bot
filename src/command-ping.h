@@ -24,7 +24,7 @@ public:
             }
         });
 
-        std::cout << "my ping command executed\n";
+        std::cout << "Ping command listener executed\n";
     }
 
     void

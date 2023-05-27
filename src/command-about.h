@@ -21,12 +21,13 @@ public:
             if (event.command.get_command_name() == "about")
             {
                 event.reply(
-                    "This is an open source bot. Please visit:\n https://github.com/nyc-discord/nyc-bot/tree/main to "
+                    "This is an open source bot. Please visit:\n "
+                    "https://github.com/nyc-discord/nyc-bot/tree/main to "
                     "view the code and contribute!");
             }
         });
 
-        std::cout << "my ping command executed\n";
+        std::cout << "About command listener executed\n";
     }
 
     void
