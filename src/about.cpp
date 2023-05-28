@@ -11,22 +11,22 @@ void
 About::execute()
 {
     auto bot = this->bot_instance->bot_cluster.get();
-    bot->on_slashcommand([](auto event) {
-        if (event.command.get_command_name() == "about") {
+    bot->on_slashcommand( []( auto event ) {
+        if ( event.command.get_command_name() == "about" ) {
             event.reply(
                 "This is an open source bot. Please visit:\n "
                 "https://github.com/nyc-discord/nyc-bot/tree/main to "
-                "view the code and contribute!");
+                "view the code and contribute!" );
         }
-    });
+    } );
 
     std::cout << "About command listener executed\n";
 }
 
-About::About(const std::string& command_name, const std::string& command_description)
-    : SlashCommandRegistrar(command_name, command_description)
+About::About( const std::string& command_name, const std::string& command_description )
+    : SlashCommandRegistrar( command_name, command_description )
 {
-    command_registry().push_back(this);
+    command_registry().push_back( this );
 }
 
-REGISTER_COMMAND(About, COMMAND_NAME, COMMAND_DESCRIPTION);
+REGISTER_COMMAND( About, COMMAND_NAME, COMMAND_DESCRIPTION );

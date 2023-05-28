@@ -11,11 +11,10 @@
 class About : public SlashCommandRegistrar
 {
 public:
-    About(const std::string& command_name, const std::string& command_description);
+    About( const std::string& command_name, const std::string& command_description );
 
     void
     execute() override;
-
 };
 
 #endif // NYC_DISCORD_BOT_ABOUT_H

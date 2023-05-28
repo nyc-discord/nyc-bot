@@ -14,11 +14,12 @@ BotInstance::get_instance()
 void
 BotInstance::start_bot() const
 {
-    this->bot_cluster->start(dpp::st_wait);
+    this->bot_cluster->start( dpp::st_wait );
 }
 
 BotInstance::BotInstance()
 {
     std::cout << "Initializing Bot" << std::endl;
-    bot_cluster = std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
+    bot_cluster =
+        std::make_unique<dpp::cluster>( std::getenv( "token" ), dpp::i_default_intents | dpp::i_message_content );
 }

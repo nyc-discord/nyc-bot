@@ -17,7 +17,7 @@ protected:
     std::string command_description;
 
 public:
-    SlashCommandRegistrar(const std::string& command_name, const std::string& command_description);
+    SlashCommandRegistrar( const std::string& command_name, const std::string& command_description );
 
     virtual void
     execute() = 0;
@@ -29,9 +29,9 @@ public:
 std::vector<SlashCommandRegistrar*>&
 command_registry();
 
-#define REGISTER_COMMAND(CMD, CMD_NAME, CMD_DESCRIPTION)        \
-    namespace                                                   \
-    {                                                           \
-        CMD static_##CMD##_instance(CMD_NAME, CMD_DESCRIPTION); \
+#define REGISTER_COMMAND( CMD, CMD_NAME, CMD_DESCRIPTION )        \
+    namespace                                                     \
+    {                                                             \
+        CMD static_##CMD##_instance( CMD_NAME, CMD_DESCRIPTION ); \
     }
 #endif // NYC_DISCORD_BOT_SLASH_COMMAND_REGISTRAR_H

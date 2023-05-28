@@ -23,7 +23,7 @@ private:
     BotInstance();
     //    BotInstance(const BotInstance&) = delete;
     void
-    operator=(const BotInstance&) = delete;
+    operator=( const BotInstance& ) = delete;
 };
 
 #endif // NYC_DISCORD_BOT_BOT_INSTANCE_H

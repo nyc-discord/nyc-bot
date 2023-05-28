@@ -11,7 +11,7 @@
 class Ping : public SlashCommandRegistrar
 {
 public:
-    Ping(const std::string& command_name, const std::string& command_description);
+    Ping( const std::string& command_name, const std::string& command_description );
 
     void
     execute() override;
