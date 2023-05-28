@@ -4,14 +4,16 @@
 
 #include "slash-commands/announcement.h"
 
+const std::string COMMAND_NAME = "announce";
+const std::string COMMAND_DESCRIPTION = "Announcement command";
+
 void
 Announcement::execute()
 {
     auto bot = this->bot_instance->bot_cluster.get();
     bot->on_slashcommand([&bot, this](const dpp::slashcommand_t& event) {
         /* Check for our /dialog command */
-        if (event.command.get_command_name() == this->command_name) {
-
+        if (event.command.get_command_name() == COMMAND_NAME) {
             auto roles = event.command.member.roles;
             dpp::snowflake admin_role(735306184860368967);
             bool user_has_permission = false;
@@ -93,5 +95,12 @@ void
 Announcement::initialize_command()
 {
     auto bot = this->bot_instance->bot_cluster.get();
-    bot->global_command_create(dpp::slashcommand(this->command_name, this->command_description, bot->me.id));
+    bot->global_command_create(dpp::slashcommand(COMMAND_NAME, COMMAND_DESCRIPTION, bot->me.id));
 }
+
+Announcement::Announcement(const std::string& command_name, const std::string& command_description)
+{
+    command_registry().push_back(this);
+}
+
+REGISTER_COMMAND(Announcement, COMMAND_NAME, COMMAND_DESCRIPTION);

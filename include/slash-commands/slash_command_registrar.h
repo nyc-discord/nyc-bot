@@ -32,9 +32,9 @@ public:
 std::vector<SlashCommandRegistrar*>&
 command_registry();
 
-#define REGISTER_COMMAND(CMD)        \
+#define REGISTER_COMMAND(CMD, CMD_NAME, CMD_DESCRIPTION)        \
     namespace                        \
     {                                \
-        CMD static_##CMD##_instance; \
+        CMD static_##CMD##_instance(CMD_NAME, CMD_DESCRIPTION); \
     }
 #endif // NYC_DISCORD_BOT_SLASH_COMMAND_REGISTRAR_H

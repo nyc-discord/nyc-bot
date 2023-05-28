@@ -11,7 +11,7 @@
 class Ping : public SlashCommandRegistrar
 {
 public:
-    Ping() { command_registry().push_back(this); }
+    Ping(const std::string& command_name, const std::string& command_description);
 
     void
     execute() override;
@@ -19,7 +19,4 @@ public:
     void
     initialize_command() override;
 };
-
-REGISTER_COMMAND(Ping);
-
 #endif // NYC_DISCORD_BOT_PING_H

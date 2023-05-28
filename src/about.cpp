@@ -4,6 +4,9 @@
 
 #include "slash-commands/about.h"
 
+const std::string COMMAND_NAME = "announce";
+const std::string COMMAND_DESCRIPTION = "Announcement command";
+
 void
 About::execute()
 {
@@ -26,3 +29,10 @@ About::initialize_command()
     auto bot = this->bot_instance->bot_cluster.get();
     bot->global_command_create(dpp::slashcommand("about", "About this bot!", bot->me.id));
 }
+
+About::About(const std::string& command_name, const std::string& command_description)
+{
+    command_registry().push_back(this);
+}
+
+REGISTER_COMMAND(About, COMMAND_NAME, COMMAND_DESCRIPTION);

@@ -11,7 +11,7 @@
 class About : public SlashCommandRegistrar
 {
 public:
-    About() { command_registry().push_back(this); }
+    About(const std::string& command_name, const std::string& command_description);
 
     void
     execute() override;
@@ -19,7 +19,5 @@ public:
     void
     initialize_command() override;
 };
-
-REGISTER_COMMAND(About);
 
 #endif // NYC_DISCORD_BOT_ABOUT_H
