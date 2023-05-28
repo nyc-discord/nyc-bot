@@ -8,7 +8,7 @@ main()
     auto bot_instance = BotInstance::get_instance();
     auto bot = bot_instance.bot_cluster.get();
 
-    bot->on_ready([&bot](auto event) {
+    bot->on_ready([&](auto event) {
         if (dpp::run_once<struct register_bot_commands>()) {
             for (auto command : command_registry()) {
                 command->execute();
@@ -31,7 +31,7 @@ main()
                     .add_select_option(dpp::select_option("Queens", "queens", "Who even lives here").set_emoji("👑"))
                     .add_select_option(
                         dpp::select_option("Brooklyn", "brooklyn", "Better be Williamsburg").set_emoji("☕️"))
-                    .add_select_option(dpp::select_option("Staten Island", "statenisland", "Ok fed").set_emoji("🚔"))
+                    .add_select_option(dpp::select_option("Staten Island", "staten_island", "Ok fed").set_emoji("🚔"))
                     .set_id("nyc_borough")));
             bot->message_create(m);
         }
@@ -87,7 +87,7 @@ main()
     /* When a user clicks your select menu , the on_select_click event will fire,
      * containing the custom_id you defined in your select menu.
      */
-    bot->on_select_click([&bot](const dpp::select_click_t& event) {
+    bot->on_select_click([&](const dpp::select_click_t& event) {
         /* Select clicks are still interactions, and must be replied to in some form to
          * prevent the "this interaction has failed" message from Discord to the user.
          */

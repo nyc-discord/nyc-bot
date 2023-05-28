@@ -14,25 +14,13 @@ public:
     std::shared_ptr<dpp::cluster> bot_cluster;
 
     static BotInstance&
-    get_instance()
-    {
-        static BotInstance instance;
-        return instance;
-    }
+    get_instance();
 
     void
-    start_bot()
-    {
-        this->bot_cluster->start(dpp::st_wait);
-    }
+    start_bot() const;
 
 private:
-    BotInstance()
-    {
-        std::cout << "Initializing Bot" << std::endl;
-        bot_cluster =
-            std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
-    };
+    BotInstance();
     //    BotInstance(const BotInstance&) = delete;
     void
     operator=(const BotInstance&) = delete;
