@@ -23,14 +23,8 @@ About::execute()
     std::cout << "About command listener executed\n";
 }
 
-void
-About::initialize_command()
-{
-    auto bot = this->bot_instance->bot_cluster.get();
-    bot->global_command_create(dpp::slashcommand("about", "About this bot!", bot->me.id));
-}
-
 About::About(const std::string& command_name, const std::string& command_description)
+    : SlashCommandRegistrar(command_name, command_description)
 {
     command_registry().push_back(this);
 }

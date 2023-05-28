@@ -17,6 +17,10 @@ main()
         }
     });
 
+    bot->on_guild_member_add([&bot](const auto& event) {
+
+    });
+
     /// custom code put this in a file
     bot->on_message_create([&bot](const dpp::message_create_t& event) {
         if (event.msg.content == "!select") {

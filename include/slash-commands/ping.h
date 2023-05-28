@@ -15,8 +15,5 @@ public:
 
     void
     execute() override;
-
-    void
-    initialize_command() override;
 };
 #endif // NYC_DISCORD_BOT_PING_H

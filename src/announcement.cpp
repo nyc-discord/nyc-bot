@@ -91,14 +91,8 @@ Announcement::execute()
     std::cout << "Announcement command listener executed\n";
 }
 
-void
-Announcement::initialize_command()
-{
-    auto bot = this->bot_instance->bot_cluster.get();
-    bot->global_command_create(dpp::slashcommand(COMMAND_NAME, COMMAND_DESCRIPTION, bot->me.id));
-}
-
 Announcement::Announcement(const std::string& command_name, const std::string& command_description)
+    : SlashCommandRegistrar(command_name, command_description)
 {
     command_registry().push_back(this);
 }

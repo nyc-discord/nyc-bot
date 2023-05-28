@@ -17,16 +17,13 @@ protected:
     std::string command_description;
 
 public:
-    SlashCommandRegistrar()
-        : bot_instance(&BotInstance::get_instance())
-    {
-    }
+    SlashCommandRegistrar(const std::string& command_name, const std::string& command_description);
 
     virtual void
     execute() = 0;
 
     virtual void
-    initialize_command() = 0;
+    initialize_command();
 };
 
 std::vector<SlashCommandRegistrar*>&
