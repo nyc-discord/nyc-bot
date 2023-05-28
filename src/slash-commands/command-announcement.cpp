@@ -15,6 +15,7 @@ Announcement::execute()
             auto roles = event.command.member.roles;
             dpp::snowflake admin_role(735306184860368967);
             bool user_has_permission = false;
+
             for (auto const& role : roles) {
                 if (role == admin_role) {
                     user_has_permission = true;
@@ -66,7 +67,7 @@ Announcement::execute()
     /* This event handles form submission for the modal dialog we create above */
     bot->on_form_submit([bot](const dpp::form_submit_t& event) {
         /* For this simple example we know the first element of the first row ([0][0]) is value type string.
-             * In the real world it may not be safe to make such assumptions!
+         * In the real world it may not be safe to make such assumptions!
          */
         std::string channel_id = std::get<std::string>(event.components[0].components[0].value);
         std::string title = std::get<std::string>(event.components[1].components[0].value);
@@ -79,8 +80,7 @@ Announcement::execute()
         event.reply(m);
 
         // create the announcement embed
-        dpp::embed embed
-            = dpp::embed().set_color(dpp::colors::sti_blue).set_title(title).set_description(body_text);
+        dpp::embed embed = dpp::embed().set_color(dpp::colors::sti_blue).set_title(title).set_description(body_text);
 
         /* reply with the created embed */
         bot->message_create(dpp::message(channel_id, embed).set_reference(event.custom_id));

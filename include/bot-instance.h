@@ -30,13 +30,12 @@ private:
     BotInstance()
     {
         std::cout << "Initializing Bot" << std::endl;
-        bot_cluster
-            = std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
+        bot_cluster =
+            std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
     };
     //    BotInstance(const BotInstance&) = delete;
     void
-    operator=(const BotInstance&)
-        = delete;
+    operator=(const BotInstance&) = delete;
 };
 
 #endif // NYC_DISCORD_BOT_BOT_INSTANCE_H

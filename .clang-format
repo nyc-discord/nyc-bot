@@ -3,13 +3,13 @@ AccessModifierOffset: -4
 AlignAfterOpenBracket: DontAlign
 AlignConsecutiveAssignments: None
 AlignConsecutiveDeclarations: None
-AlignEscapedNewlines: Right
-AlignOperands:   false
+AlignEscapedNewlines: Left
+AlignOperands:   AlignAfterOperator
 AlignTrailingComments: false
-AllowAllParametersOfDeclarationOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Inline
+AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
@@ -34,7 +34,8 @@ BraceWrapping:
   BeforeElse:      true
   BeforeLambdaBody: false
   IndentBraces:    false
-BreakBeforeBinaryOperators: All
+
+BreakBeforeBinaryOperators: None
 BreakBeforeBraces: Custom
 BreakBeforeInheritanceComma: false
 BreakBeforeTernaryOperators: true
@@ -50,6 +51,7 @@ DerivePointerAlignment: false
 DisableFormat:   false
 ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: false
+
 ForEachMacros:
   - foreach
   - Q_FOREACH
