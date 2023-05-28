@@ -2,13 +2,13 @@
 // Created by ariel on 5/27/23.
 //
 
-#ifndef NYC_DISCORD_BOT_COMMAND_ABOUT_H
-#define NYC_DISCORD_BOT_COMMAND_ABOUT_H
+#ifndef NYC_DISCORD_BOT_ABOUT_H
+#define NYC_DISCORD_BOT_ABOUT_H
 
 #include "bot-instance.h"
-#include "slash-command.h"
+#include "slash_command_registrar.h"
 
-class About : public SlashCommand
+class About : public SlashCommandRegistrar
 {
 public:
     About() { command_registry().push_back(this); }
@@ -22,4 +22,4 @@ public:
 
 REGISTER_COMMAND(About);
 
-#endif // NYC_DISCORD_BOT_COMMAND_ABOUT_H
+#endif // NYC_DISCORD_BOT_ABOUT_H

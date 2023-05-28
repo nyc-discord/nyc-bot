@@ -2,7 +2,7 @@
 // Created by ariel on 5/27/23.
 //
 
-#include "command-announcement.h"
+#include "slash-commands/announcement.h"
 
 void
 Announcement::execute()

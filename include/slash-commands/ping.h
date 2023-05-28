@@ -2,13 +2,13 @@
 // Created by ariel on 5/27/23.
 //
 
-#ifndef NYC_DISCORD_BOT_COMMAND_PING_H
-#define NYC_DISCORD_BOT_COMMAND_PING_H
+#ifndef NYC_DISCORD_BOT_PING_H
+#define NYC_DISCORD_BOT_PING_H
 
 #include "bot-instance.h"
-#include "slash-command.h"
+#include "slash_command_registrar.h"
 
-class Ping : public SlashCommand
+class Ping : public SlashCommandRegistrar
 {
 public:
     Ping() { command_registry().push_back(this); }
@@ -22,4 +22,4 @@ public:
 
 REGISTER_COMMAND(Ping);
 
-#endif // NYC_DISCORD_BOT_COMMAND_PING_H
+#endif // NYC_DISCORD_BOT_PING_H

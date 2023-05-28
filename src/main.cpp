@@ -1,5 +1,5 @@
 #include "bot-instance.h"
-#include "commands.h"
+#include "slash-commands/commands.h"
 #include <regex>
 
 int

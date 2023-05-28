@@ -2,7 +2,7 @@
 // Created by ariel on 5/27/23.
 //
 
-#include "command-about.h"
+#include "slash-commands/about.h"
 
 void
 About::execute()

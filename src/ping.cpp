@@ -2,7 +2,7 @@
 // Created by ariel on 5/27/23.
 //
 
-#include "command-ping.h"
+#include "slash-commands/ping.h"
 
 void
 Ping::execute()
