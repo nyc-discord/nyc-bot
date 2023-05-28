@@ -6,9 +6,9 @@
 #define NYC_DISCORD_BOT_COMMAND_PING_H
 
 #include "bot-instance.h"
-#include "command.h"
+#include "slash-command.h"
 
-class Ping : public Command
+class Ping : public SlashCommand
 {
 public:
     Ping() { command_registry().push_back(this); }

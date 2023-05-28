@@ -2,14 +2,14 @@
 // Created by ariel on 5/27/23.
 //
 
-#ifndef NYC_DISCORD_BOT_COMMAND_H
-#define NYC_DISCORD_BOT_COMMAND_H
+#ifndef NYC_DISCORD_BOT_SLASH_COMMAND_H
+#define NYC_DISCORD_BOT_SLASH_COMMAND_H
 
 #include "bot-instance.h"
 #include <iostream>
 #include <vector>
 
-class Command
+class SlashCommand
 {
 protected:
     BotInstance* bot_instance;
@@ -17,7 +17,7 @@ protected:
     std::string command_description;
 
 public:
-    Command()
+    SlashCommand()
         : bot_instance(&BotInstance::get_instance())
     {
     }
@@ -29,7 +29,7 @@ public:
     initialize_command() = 0;
 };
 
-std::vector<Command*>&
+std::vector<SlashCommand*>&
 command_registry();
 
 #define REGISTER_COMMAND(CMD)        \
@@ -37,4 +37,4 @@ command_registry();
     {                                \
         CMD static_##CMD##_instance; \
     }
-#endif // NYC_DISCORD_BOT_COMMAND_H
+#endif // NYC_DISCORD_BOT_SLASH_COMMAND_H

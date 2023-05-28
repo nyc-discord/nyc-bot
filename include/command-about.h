@@ -6,9 +6,9 @@
 #define NYC_DISCORD_BOT_COMMAND_ABOUT_H
 
 #include "bot-instance.h"
-#include "command.h"
+#include "slash-command.h"
 
-class About : public Command
+class About : public SlashCommand
 {
 public:
     About() { command_registry().push_back(this); }

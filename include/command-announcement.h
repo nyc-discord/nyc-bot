@@ -6,10 +6,10 @@
 #define NYC_DISCORD_BOT_COMMAND_ANNOUNCEMENT_H
 
 #include "bot-instance.h"
-#include "command.h"
+#include "slash-command.h"
 #include <string>
 
-class Announcement : public Command
+class Announcement : public SlashCommand
 {
 public:
     Announcement() { command_registry().push_back(this); }
