@@ -20,6 +20,5 @@ BotInstance::start_bot() const
 BotInstance::BotInstance()
 {
     std::cout << "Initializing Bot" << std::endl;
-    bot_cluster =
-        std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
+    bot_cluster = std::make_unique<dpp::cluster>(std::getenv("token"), dpp::i_default_intents | dpp::i_message_content);
 }
