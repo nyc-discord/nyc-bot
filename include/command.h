@@ -13,6 +13,8 @@ class Command
 {
 protected:
     BotInstance* bot_instance;
+    std::string command_name;
+    std::string command_description;
 
 public:
     Command()
@@ -25,6 +27,7 @@ public:
     virtual void
     initialize_command()
         = 0;
+
 };
 
 std::vector<Command*>&

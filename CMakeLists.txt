@@ -19,5 +19,5 @@ FetchContent_MakeAvailable(dpp)
 # Add the 'include' directory to the include file search path
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-add_executable(nyc_discord_bot src/main.cpp src/command.cpp include/command.h include/command-ping.h src/bot-instance.cpp include/bot-instance.h include/command-about.h include/commands.h include/command-avatar.h)
+add_executable(nyc_discord_bot src/main.cpp include/command.h include/command-ping.h src/bot-instance.cpp include/bot-instance.h include/command-about.h include/commands.h include/command-avatar.h src/slash-commands/command-about.cpp src/slash-commands/command-ping.cpp src/slash-commands/command-announcement.cpp src/slash-commands/command.cpp)
 target_link_libraries(nyc_discord_bot ${OPENSSL_CRYPTO_LIBRARY} ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY} dpp)

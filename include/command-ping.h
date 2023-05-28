@@ -14,24 +14,10 @@ public:
     Ping() { command_registry().push_back(this); }
 
     void
-    execute() override
-    {
-        auto bot = this->bot_instance->bot_cluster.get();
-        bot->on_slashcommand([](auto event) {
-            if (event.command.get_command_name() == "ping") {
-                event.reply("Pong!");
-            }
-        });
-
-        std::cout << "Ping command listener executed\n";
-    }
+    execute() override;
 
     void
-    initialize_command() override
-    {
-        auto bot = this->bot_instance->bot_cluster.get();
-        bot->global_command_create(dpp::slashcommand("ping", "Ping pong!", bot->me.id));
-    }
+    initialize_command() override;
 };
 
 REGISTER_COMMAND(Ping);
